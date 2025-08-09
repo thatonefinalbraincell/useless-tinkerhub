@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import google.generativeai as genai
 import json
@@ -72,6 +72,10 @@ def save_gossip_to_db(gossip_text):
         "text": gossip_text,
         "timestamp": firestore.SERVER_TIMESTAMP
     })
+
+@app.route("/")
+def homepage():
+    return render_template('index.html')
 
 # --- ROUTE FOR SPILL THE TEA (GOSSIP COLLECTOR) ---
 @app.route("/spill_tea", methods=["POST"])
