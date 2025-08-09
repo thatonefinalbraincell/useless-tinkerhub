@@ -75,7 +75,7 @@ def save_gossip_to_db(gossip_text):
 
 @app.route("/")
 def homepage():
-    return render_template('index.html')
+    return render_template('finalfront.html')
 
 # --- ROUTE FOR SPILL THE TEA (GOSSIP COLLECTOR) ---
 @app.route("/spill_tea", methods=["POST"])
